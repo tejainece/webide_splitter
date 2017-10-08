@@ -1,0 +1,20 @@
+:host {
+    display: block;
+    height: 100%;
+    width: 7px;
+    background: #efefef url('packages/web_ide/asset/img/splitter/handle.png') no-repeat center;
+    /*box-shadow: inset 0 0 2px 1px #ccc;*/
+    cursor: col-resize;
+}
+
+:host(.horizontal:host) {
+    width: 100%;
+    height: 7px;
+    background-color: #efefef;
+    background-image: url('packages/web_ide/asset/img/splitter/handle_horiz.png');
+    cursor: row-resize;
+}
+
+:hover, .active {
+    background-color: #ddd;
+}
