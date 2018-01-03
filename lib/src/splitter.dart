@@ -88,13 +88,25 @@ class Splitter {
       _slideEventController.add(event);
 
       if (horizontal) {
-        int total = prev.offsetHeight + next.offsetHeight;
-        prev.style.height = '${event.offsetPos - 3}px';
-        next.style.height = '${total - event.offsetPos}px';
+        final int total =
+            prev.clientHeight + next.clientHeight + _host.clientHeight;
+        int firstHeightUpd = event.offsetPos - (_host.clientHeight ~/ 2);
+        final int secondHeightUpd =
+            total - event.offsetPos - (_host.clientHeight ~/ 2);
+        firstHeightUpd +=
+            total - (firstHeightUpd + secondHeightUpd + _host.clientHeight);
+        prev.style.height = '${firstHeightUpd}px';
+        next.style.height = '${secondHeightUpd}px';
       } else {
-        int total = prev.offsetWidth + next.offsetWidth;
-        prev.style.width = '${event.offsetPos - 3}px';
-        next.style.width = '${total - prev.offsetWidth}px';
+        final int total =
+            prev.clientWidth + next.clientWidth + _host.clientWidth;
+        int firstWidthUp = event.offsetPos - (_host.clientWidth ~/ 2);
+        final int secondWidthUpd =
+            total - event.offsetPos - (_host.clientWidth ~/ 2);
+        firstWidthUp +=
+            total - (firstWidthUp + secondWidthUpd + _host.clientWidth);
+        prev.style.width = '${firstWidthUp}px';
+        next.style.width = '${secondWidthUpd}px';
       }
     }
   }
@@ -121,8 +133,8 @@ class Splitter {
       new StreamController<SplitterSlideEvent>.broadcast();
 
   /// Event fired when the splitter is slided
-  @Output()
-  Stream<SplitterSlideEvent> get slide => _slideEventController.stream;
+  // @Output()
+  // Stream<SplitterSlideEvent> get slide => _slideEventController.stream;
 }
 
 class SplitterSlideEvent {

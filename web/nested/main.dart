@@ -17,33 +17,47 @@ import 'package:webide_splitter/webide_splitter.dart';
     }
     
     .container {
-      width: 50%;
-      height: 100%;
-      display: flex;
-      flex-direction: row;
+      width: 900px;
+      height: 500px;
       background-color: black;
     }
     
-    .panel {
+    .panel1 {
+        width: 100%;
+        height: calc((100% - 7px) / 2);
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .panel2 {
       height: 100%;
       width: calc((100% - 14px) / 3);
     }
     '''
   ],
   template: r'''
-  <div class="container">
-    <div class="panel first" style="background-color: red;"></div>
+<div class="container">
+  <div class="panel1">
+    <div class="panel2 first" style="background-color: red;"></div>
     <splitter></splitter>
-    <div class="panel second" style="background-color: blue;"></div>
+    <div class="panel2 second" style="background-color: blue;"></div>
     <splitter></splitter>
-    <div class="panel third" style="background-color: green;"></div>
+    <div class="panel2 third" style="background-color: green;"></div>
   </div>
+  <splitter horizontal></splitter>
+   <div class="panel1">
+    <div class="panel2 first" style="background-color: red;"></div>
+    <splitter></splitter>
+    <div class="panel2 second" style="background-color: blue;"></div>
+    <splitter></splitter>
+    <div class="panel2 third" style="background-color: green;"></div>
+  </div>
+</div>
   ''',
   directives: const [materialDirectives, Splitter],
   providers: const [materialProviders],
 )
-class AppComponent {
-}
+class AppComponent {}
 
 void main() {
   bootstrap(AppComponent);

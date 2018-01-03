@@ -1,6 +1,6 @@
 name: webide_splitter
 description: A splitter component for Angular Dart
-version: 0.0.2
+version: 1.5.5
 homepage: https://github.com/tejainece/webide_splitter
 author: Ravi Teja Gudapati <tejainece@gmail.com>
 documentation:
@@ -21,13 +21,15 @@ dev_dependencies:
 transformers:
 - angular:
     entry_points:
-      - web/main.dart
+      - web/horizontal/main.dart
+      - web/nested/main.dart
+      - web/vertical/main.dart
 - test/pub_serve:
     $include: test/**_test.dart
 - dart_to_js_script_rewriter
 
 # Uncomment the following in sdk 1.24+ to make pub serve
 # use dartdevc (webdev.dartlang.org/tools/dartdevc).
-#web:
-#  compiler:
-#    debug: dartdevc
+web:
+  compiler:
+    debug: dartdevc
