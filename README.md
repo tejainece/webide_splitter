@@ -52,9 +52,9 @@ class AppComponent {}
 
 More examples:
 
-+ [Vertical]()
-+ [Horizontal]()
-+ [Nested]()
++ [Vertical](https://github.com/tejainece/webide_splitter/tree/master/web/vertical)
++ [Horizontal](https://github.com/tejainece/webide_splitter/tree/master/web/horizontal)
++ [Nested](https://github.com/tejainece/webide_splitter/tree/master/web/nested)
 
 # Usage
 
